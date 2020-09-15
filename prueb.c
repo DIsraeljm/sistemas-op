@@ -3,7 +3,7 @@
 #include <string.h>
 #include <curses.h>
 #include <unistd.h>
-
+//introduje un cambio que dices si cambiamos esto????
 /*Definicion de variables globales*/
 int EAX=0,EBX=0,ECX=0,EDX=0;
 int PC=0;
