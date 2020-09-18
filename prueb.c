@@ -30,12 +30,123 @@ int kbhit(void){
 
 void asignar(char codop[],char registro1[],char regis2[]){
     PC+=1;
-	printf("\r%d\t%s\n",PC,IR);
-    printf("Tokens:(%s)(%s)(%s)\n",codop,registro1,regis2);
+  //printf("Tokens:(%s)(%s)(%s)\n",codop,registro1,regis2);
+    int val;
+    if(strcmp(regis2,"EAX")!=0&&strcmp(regis2,"EBX")!=0&&strcmp(regis2,"ECX")!=0&&strcmp(regis2,"EDX")!=0){
+    val=atoi(regis2);
+    }else{
+        if(strcmp(regis2,"EAX")==0) val=EAX;
+        if(strcmp(regis2,"EBX")==0) val=EBX;
+        if(strcmp(regis2,"ECX")==0) val=ECX;
+        if(strcmp(regis2,"EDX")==0) val=EDX;
+    }
+
+    if(strcasecmp(codop, "MOV") == 0){
+      if(strcasecmp(registro1, "EAX") == 0){
+            //printf("%d\n",(int)*regis2);
+            EAX=val;
+        }
+      else if(strcasecmp(registro1, "EBX") == 0){
+            EBX=val;
+        }
+      else if(strcasecmp(registro1, "ECX") == 0){
+            ECX=val;
+        }
+      else if(strcasecmp(registro1, "EDX") == 0){
+            EDX=val;
+        }
+        printf("\r%d\t%s\t%d\t%d\t%d\t%d\n",PC,IR,EAX,EBX,ECX,EDX);
+    }
+
+    if(strcasecmp(codop, "ADD") == 0){
+      if(strcasecmp(registro1, "EAX") == 0){
+            //printf("%d\n",(int)*regis2);
+            EAX+=val;
+        }
+      else if(strcasecmp(registro1, "EBX") == 0){
+            EBX+=val;
+        }
+      else if(strcasecmp(registro1, "ECX") == 0){
+            ECX+=val;
+        }
+      else if(strcasecmp(registro1, "EDX") == 0){
+            EDX+=val;
+        }
+        printf("\r%d\t%s\t%d\t%d\t%d\t%d\n",PC,IR,EAX,EBX,ECX,EDX);
+    }
+
+    if(strcasecmp(codop, "SUB") == 0){
+      if(strcasecmp(registro1, "EAX") == 0){
+            //printf("%d\n",(int)*regis2);
+            EAX+=val;
+        }
+      else if(strcasecmp(registro1, "EBX") == 0){
+            EBX+=val;
+        }
+      else if(strcasecmp(registro1, "ECX") == 0){
+            ECX+=val;
+        }
+      else if(strcasecmp(registro1, "EDX") == 0){
+            EDX+=val;
+        }
+        printf("\r%d\t%s\t%d\t%d\t%d\t%d\n",PC,IR,EAX,EBX,ECX,EDX);
+    }
+
+    if(strcasecmp(codop, "DIV") == 0){
+      if(strcasecmp(registro1, "EAX") == 0){
+            //printf("%d\n",(int)*regis2);
+            EAX/=val;
+        }
+      else if(strcasecmp(registro1, "EBX") == 0){
+            EBX/=val;
+        }
+      else if(strcasecmp(registro1, "ECX") == 0){
+            ECX/=val;
+        }
+      else if(strcasecmp(registro1, "EDX") == 0){
+            EDX/=val;
+        }
+        printf("\r%d\t%s\t%d\t%d\t%d\t%d\n",PC,IR,EAX,EBX,ECX,EDX);
+    }
+
+    if(strcasecmp(codop, "INC") == 0){
+      if(strcasecmp(registro1, "EAX") == 0){
+            //printf("%d\n",(int)*regis2);
+            EAX++;
+        }
+      else if(strcasecmp(registro1, "EBX") == 0){
+            EBX++;
+        }
+      else if(strcasecmp(registro1, "ECX") == 0){
+            ECX++;
+        }
+      else if(strcasecmp(registro1, "EDX") == 0){
+            EDX++;
+        }
+        printf("\r%d\t%s\t\t%d\t%d\t%d\t%d\n",PC,IR,EAX,EBX,ECX,EDX);
+    }
+    if(strcasecmp(codop, "DEC") == 0){
+      if(strcasecmp(registro1, "EAX") == 0){
+            //printf("%d\n",(int)*regis2);
+            EAX--;
+        }
+      else if(strcasecmp(registro1, "EBX") == 0){
+            EBX--;
+        }
+      else if(strcasecmp(registro1, "ECX") == 0){
+            ECX--;
+        }
+      else if(strcasecmp(registro1, "EDX") == 0){
+            EDX--;
+        }
+        printf("\r%d\t%s\t\t%d\t%d\t%d\t%d\n",PC,IR,EAX,EBX,ECX,EDX);
+    }
+     if(strcasecmp(codop, "END") == 0){
+        printf("\r%d\t%s\t\t%d\t%d\t%d\t%d\n",PC,IR,EAX,EBX,ECX,EDX);
+    }
+
+    //printf("\r%d\t%s\t%d\t%d\t%d\t%d\n",PC,IR,EAX,EBX,ECX,EDX);
     
-    /*if(strcmp(codop,"END")==0){
-        printf("\n");
-    }*/
 
 }
 
